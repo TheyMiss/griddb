@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <style>
+
+    * {
+        box-sizing: border-box;
+        font-family: 'Oswald', sans-serif;
+    }
+
+    body {
+        background-color: #222222  
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .table th, .table tr{
+       padding: 12px 15px; 
+       font-size: 1;
+       text-align: center;
+       color: #616161;
+    }
+
+    .table th {
+        background-color: #393939;
+        color: #10965b;
+        font-weight: 1em;
+    }
+
+    .table tr{
+        background-color: #222222;      
+    }
+
+    .table td {
+        padding: 10px 0
+    }
+
+    </style>
+</head>
+<body>
+<?php
+
+$array = [
+    'Žp19/1v' => [
+        rand(1, 9999) => [
+            'data' => date("Y-m-d"),
+            'name' => strtoupper("Maariyah"),
+            'lastname' => strtoupper("Graham"),
+            'score' => [
+                'math' => rand(1,10),
+                'it' => rand(1,10),
+                'english' => rand(1,10)
+            ]
+        ],
+        rand(1, 9999) => [
+            'data' => date("Y-m-d"),
+            'name' => strtoupper("Maude"),
+            'lastname' => strtoupper("Chester"),
+            'score' => [
+                'math' => rand(1,10),
+                'it' => rand(1,10),
+                'english' => rand(1,10)
+            ]
+        ],
+
+        rand(1, 9999) => [
+            'data' => date("Y-m-d"),
+            'name' => strtoupper("Briana"),
+            'lastname' => strtoupper("Rodgers"),
+            'score' => [
+                'math' => rand(1,10),
+                'it' => rand(1,10),
+                'english' => rand(1,10)
+            ]
+        ],
+
+        rand(1, 9999) => [
+            'data' => date("Y-m-d"),
+            'name' => strtoupper("Barbara"),
+            'lastname' => strtoupper("Byrd"),
+            'score' => [
+                'math' => rand(1,10),
+                'it' => rand(1,10),
+                'english' => rand(1,10)
+            ]
+        ],
+
+        rand(1, 9999) => [
+            'data' => date("Y-m-d"),
+            'name' => strtoupper("Manveer "),
+            'lastname' => strtoupper("Little"),
+            'score' => [
+                'math' => rand(1,10),
+                'it' => rand(1,10),
+                'english' => rand(1,10)
+            ]
+        ]
+
+    ],
+    'ŽPS19/v2' => [
+        rand(1, 9999) => [
+            'data' => date("Y-m-d"),
+            'name' => strtoupper("Tahmina"),
+            'lastname' => strtoupper("Clarkson"),
+            'score' => [
+                'math' => rand(1,10),
+                'it' => rand(1,10),
+                'english' => rand(1,10)
+            ]
+        ],
+        rand(1, 9999) => [
+            'data' => date("Y-m-d"),
+            'name' => strtoupper("Isla-Mae"),
+            'lastname' => strtoupper("Mckeown"),
+            'score' => [
+                'math' => rand(1,10),
+                'it' => rand(1,10),
+                'english' => rand(1,10)
+            ]
+        ],
+        rand(1, 9999) => [
+            'data' => date("Y-m-d"),
+            'name' => strtoupper("Delilah"),
+            'lastname' => strtoupper("Cohen"),
+            'score' => [
+                'math' => rand(1,10),
+                'it' => rand(1,10),
+                'english' => rand(1,10)
+            ]
+        ],
+        rand(1, 9999) => [
+            'data' => date("Y-m-d"),
+            'name' => strtoupper("Adelaide"),
+            'lastname' => strtoupper("Murphy"),
+            'score' => [
+                'math' => rand(1,10),
+                'it' => rand(1,10),
+                'english' => rand(1,10)
+            ]
+        ],
+        rand(1, 9999) => [
+            'data' => date("Y-m-d"),
+            'name' => strtoupper("Lyndon"),
+            'lastname' => strtoupper("Ward"),
+            'score' => [
+                'math' => rand(1,10),
+                'it' => rand(1,10),
+                'english' => rand(1,10)
+            ]
+        ]
+    ]
+];
+
+?>
+<table class="table"><tr><th class="item1">Klasė</th><th>Kodas</th><th>Vardas</th><th>Pavardė</th><th>Kontrolinių darbų vidurkis</th><th>Duomenų formatavimo data</th></tr>
+    <?php foreach($array as $class => $students):?>
+        <?php foreach($students as $data => $datainfo):?>
+            <tr>
+                <td><?=$class;?></td>
+                <td><?=$data;?></td>
+                <td><?=$datainfo['name'];?></td>
+                <td><?=$datainfo['lastname'];?></td>
+                <?php
+                $average=0;
+                foreach ($datainfo['score'] as $key => $grade){
+                    $average += $grade;
+                }
+                $average = round($average /3,1);
+                ?>
+                <td><?=$average;?></td>
+                <td><?=$datainfo['data'];?></td>
+            </tr>
+        <?php endforeach; ?>
+    <?php endforeach; ?>
+</table>
+</body>
